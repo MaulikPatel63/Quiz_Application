@@ -45,12 +45,12 @@ app.use("/", require("./routes/index.js"));
 app.get("/", (req, res) => {
   res.send(`
     <center>
-        <h1>Welcome to the Education-Management-System!</h1>
+        <h1>Welcome to the Quiz_Application!</h1>
         <br>
         <p>
-            Get Education-Management-System: 
-        <a href="https://github.com/MaulikPatel63/Education-Management-System.git" target="_blank">
-            Repository: Education-Management-System
+            Get Quiz_Application: 
+        <a href="https://github.com/MaulikPatel63/Quiz_Application.git" target="_blank">
+            Repository: Quiz_Application
         </a>
         </p>
     </center>
