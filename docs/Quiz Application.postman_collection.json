@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "be9d08bc-c3a2-4816-a40d-5c3efc18c2d8",
+		"name": "Quiz Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29105713"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"maulik\",\r\n    \"email\": \"maulik@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"maulik@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password Reset",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/password-reset",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"password-reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Password Change",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/password-reset/9fadd391cc623c54c31d048b788d8d8ef1b2cdc3",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"password-reset",
+								"9fadd391cc623c54c31d048b788d8d8ef1b2cdc3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth Check",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/authCheck",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"authCheck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/auth/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "QUIZ",
+			"item": [
+				{
+					"name": "Add Quiz",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"HTML & CSS Fundamentals Quiz\",\r\n  \"description\": \"This quiz checks your understanding of HTML and CSS concepts.\",\r\n  \"questions\": [\r\n    {\r\n      \"text\": \"What does HTML stand for?\",\r\n      \"choices\": [\r\n        \"Hyper Text Markup Language\",\r\n        \"High Text Machine Language\",\r\n        \"Hyper Transfer Markup Language\",\r\n        \"Home Tool Markup Language\"\r\n      ],\r\n      \"correctAnswer\": \"Hyper Text Markup Language\"\r\n    },\r\n    {\r\n      \"text\": \"Which tag is used to define a hyperlink in HTML?\",\r\n      \"choices\": [\r\n        \"<link>\",\r\n        \"<a>\",\r\n        \"<href>\",\r\n        \"<anchor>\"\r\n      ],\r\n      \"correctAnswer\": \"<a>\"\r\n    },\r\n    {\r\n      \"text\": \"Which CSS property is used to change the text color?\",\r\n      \"choices\": [\r\n        \"background-color\",\r\n        \"font-color\",\r\n        \"text-color\",\r\n        \"color\"\r\n      ],\r\n      \"correctAnswer\": \"color\"\r\n    },\r\n    {\r\n      \"text\": \"How can you make a list that lists items with numbers?\",\r\n      \"choices\": [\r\n        \"<ul>\",\r\n        \"<ol>\",\r\n        \"<li>\",\r\n        \"<dl>\"\r\n      ],\r\n      \"correctAnswer\": \"<ol>\"\r\n    }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/quiz/quiz-add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"quiz-add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quiz",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/quiz/quiz-get",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"quiz-get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quiz By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/quiz/quiz-get/671ab58bac9f22ccd2370277",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"quiz-get",
+								"671ab58bac9f22ccd2370277"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quiz",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"JavaScript Basics Quiz\",\r\n    //   \"description\": \"This quiz tests basic concepts of JavaScript programming.\",\r\n    \"text\": \"What is the output of '2' + 4 in JavaScript?\",\r\n    \"choices\": [\r\n        \"4\",\r\n        \"22\",\r\n        \"NaN\",\r\n        \"Error\"\r\n    ],\r\n    \"correctAnswer\": \"24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/quiz/quiz-update/671ab58bac9f22ccd2370277?questionId=671abc0ab47eecf8ca8c348e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"quiz-update",
+								"671ab58bac9f22ccd2370277"
+							],
+							"query": [
+								{
+									"key": "questionId",
+									"value": "671abc0ab47eecf8ca8c348e"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quiz Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/v1/quiz/quiz-delete/671ab58bac9f22ccd2370277?questionId=671abc0ab47eecf8ca8c348e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"quiz",
+								"quiz-delete",
+								"671ab58bac9f22ccd2370277"
+							],
+							"query": [
+								{
+									"key": "questionId",
+									"value": "671abc0ab47eecf8ca8c348e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoibWF1bGlrIiwiZW1haWwiOiJtYXVsaWtAZ21haWwuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkL0FkU3BydUpUN2Y3aENDL1dnRUk1T0w1UnFhYzhpUUxpcXpWT1NrT1lGTFFKaDRtdlJSd2UiLCJfaWQiOiI2NzFhYjE0ZDE4MGVlZDYxNDA5OTYyMTEiLCJjcmVhdGVkQXQiOiIyMDI0LTEwLTI0VDIwOjQyOjUzLjg0N1oiLCJ1cGRhdGVkQXQiOiIyMDI0LTEwLTI0VDIwOjQyOjUzLjg0N1oiLCJfX3YiOjB9LCJpYXQiOjE3Mjk4MDI1NzMsImV4cCI6MTczMDQwNzM3M30.kUNUEnLEBrVWS9_ORerzU49u2f1g0MwNmiHLv0Jo818",
+			"type": "string"
+		}
+	]
+}
